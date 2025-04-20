@@ -1,3 +1,4 @@
+
 import React, { useCallback, useRef, useState, DragEvent } from 'react';
 import {
   ReactFlow,
@@ -22,7 +23,7 @@ import StartCallNode from './nodes/StartCallNode';
 import PlayAudioNode from './nodes/PlayAudioNode';
 import AINode from './nodes/AINode';
 import EndCallNode from './nodes/EndCallNode';
-import LogicNode from './nodes/LogicNode';
+import LogicNode, { BranchNode } from './nodes/LogicNode';
 import GatherNode from './nodes/GatherNode';
 import ApiRequestNode from './nodes/ApiRequestNode';
 import TransferCallNode from './nodes/TransferCallNode';
@@ -40,7 +41,7 @@ const nodeTypes: NodeTypes = {
   gather: GatherNode as any,
   apiRequest: ApiRequestNode as any,
   transferCall: TransferCallNode as any,
-  default: LogicNode as any, // Add default type for branch nodes
+  default: BranchNode as any, // Use our custom BranchNode component for condition nodes
 };
 
 const initialNodes = [
